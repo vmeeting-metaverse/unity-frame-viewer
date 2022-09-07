@@ -7,6 +7,13 @@ using Newtonsoft.Json.Linq;
 
 public class CommManager : MonoBehaviour
 {
+    void Awake(){
+        #if (!UNITY_EDITOR && UNITY_WEBGL)
+        // disable WebGLInput.captureAllKeyboardInput so elements in web page can handle keyboard inputs
+        WebGLInput.captureAllKeyboardInput = false;
+        #endif
+    }
+
     // Start is called before the first frame update
     void Start()
     {
